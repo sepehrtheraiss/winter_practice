@@ -1,0 +1,5 @@
+1.Read from a file.
+2.Each line goes in a Node
+3.Each node knows where it's line is(i.e. who's line comes before and after me)
+4.Create a makefile
+
