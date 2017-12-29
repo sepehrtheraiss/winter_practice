@@ -31,13 +31,14 @@ int main()
 {
     int i =0;
     int n;
-    char* str = malloc(sizeof(char)*1000);
+    char* str = malloc(sizeof(char)*50);
+    //char str[1000];
     char** s_arr;
     scanf("%i ",&n);
-    s_arr = malloc(sizeof(char)*n);
+    s_arr = malloc(sizeof(char*)*n);
     while(i < n){
-        s_arr[i] = malloc(sizeof(char)*1000);
-        fgets(s_arr[i],1000,stdin);
+        s_arr[i] = malloc(sizeof(char)*50);
+        fgets(s_arr[i],50,stdin);
 //        int a = size(s_arr[i]);
   //      if(a < 1000){
     //        s_arr[i] = realloc(s_arr[i],a);
@@ -48,17 +49,19 @@ int main()
     i = 0;
     int is,js,com;
     while(i<n-1){
-        for(int j=i+1;j<n-1;j++){
+        for(int j=i+1;j<n;j++){
             is = size(s_arr[i]);
             js = size(s_arr[j]);
             
             if(is > js){
+            
                 strcpy(str,s_arr[i]);
                 //printf("%s",str);
         //        s_arr[i] = realloc(s_arr[i],js);
                 strcpy(s_arr[i],s_arr[j]);
           //      s_arr[j] = realloc(s_arr[j],is);
                 strcpy(s_arr[j],str);
+                
             }
             else if (is == js){
                 com = greater(s_arr[i],s_arr[j],is);
@@ -69,14 +72,23 @@ int main()
                 }
             }
          
-        }
+        }// end for loop
         i++;
     }
 
-    free(str);
-    for(int i =0;i<n;i++){
-        printf("%s",s_arr[i]);
+    int b;
+    for(int v =0;v<n;v++){
+        b = size(s_arr[v]);
+        if(s_arr[v][b] != '\n'){
+            printf("%s\n",s_arr[v]);            
+            
+        }
+        else{
+            printf("%s",s_arr[v]);   
+        }
     }
+    free(str);
+ 
     for(int i =0;i<n;i++){
         free(s_arr[i]);
     }
