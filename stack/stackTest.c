@@ -13,13 +13,15 @@ int main(){
     printf("poped: %s\n",pop_back(s));
     printf("size: %i\n",stack_size(s));
     printStack(stdout,s);
+    printf("back: %s\n",back(s));
     printf("poped: %s\n",pop_back(s));
     printf("size: %i\n",stack_size(s));
     printStack(stdout,s);
     printf("poped: %s\n",pop_back(s));
     printf("size: %i\n",stack_size(s));
     printStack(stdout,s);
-    printf("poped: %s\n",pop_back(s));
+//    printf("poped: %s\n",pop_back(s));
     printf("size: %i\n",stack_size(s));
+    stack_deinit(s);
     return (EXIT_SUCCESS);
 }

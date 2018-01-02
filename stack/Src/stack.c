@@ -14,14 +14,23 @@ void* stack_init(){
     sPtr->tail = NULL;
     return sPtr;
 }
-void stack_deinit(void* n);
+void stack_deinit(void* n){
+    node* ptr = cast(n)->head;
+    while(cast(n)->head != NULL){
+        cast(n)->head = cast(n)->head->next;
+        freeNode(ptr);
+        ptr = cast(n)->head;
+    }
+    cast(n)->tail = NULL;
+    cast(n)->size = 0;
+}
 int stack_empty(void* n){
     return (cast(n)->size == 0);
 }
 int stack_size(void* n){
     return cast(n)->size;
 }
-void* back(void* n);
+void* back(void* n){return (char*)cast(n)->tail->str;}
 // both will return 1 on success and 0 on fail
 int push_back(void* s,char* str){
     node* n = newNode(str);
@@ -49,6 +58,9 @@ char* pop_back(void* s){
     freeNode(d);
     if(cast(s)->tail != NULL){
         cast(s)->tail->next = NULL;
+    }
+    if(cast(s)->tail == cast(s)->head){
+        cast(s)->head = NULL;
     }
     cast(s)->size--;
     return str;
