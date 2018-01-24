@@ -1,6 +1,7 @@
 #ifndef _HEADER_NODE_
 #define _HEADER_NODE_
-#include "header.h"
+#include<stdio.h>
+#include<stdlib.h>
 typedef struct Node{
     struct Node* prev;
     struct Node* next;

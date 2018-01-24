@@ -1,6 +1,5 @@
 #ifndef _HEADER_STACK_
 #define _HEADER_STACK_
-#include "header.h"
 #include "node.h"
 // returns a new stack node
 typedef struct stack_node stack;
